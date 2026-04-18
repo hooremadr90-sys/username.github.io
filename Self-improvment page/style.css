@@ -1,0 +1,67 @@
+html, body, h1{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+#container{
+   
+    background-color:#FFF4E6;
+    width: 70%;
+    margin: 10px 100px;
+    padding:20px 20px;
+    border: 4px solid #f4c38b;
+}
+
+
+hr{
+    border: 1px solid;
+    border-color: #f4c38b ;
+}
+
+.my-icon{
+
+    width: 300px;
+    height:auto;
+    border-radius: 10px;
+    border: 4px solid  #f4c38b;
+    margin: 10px;
+}
+
+#first-h{
+    border:4px solid #f4c38b;
+    text-decoration:underline;
+    padding:0 10px;
+    margin: 10px;
+}
+
+strong{
+    color:#c98d4d;
+}
+b{
+    color:#c98d4d;
+}
+
+.quote-box{
+    color:#3E2A1F;
+    font-size: 15px;
+    border:3px solid #f4c38b;
+    padding: 0px 80px;
+
+}
+
+
+.productivity-section{
+    background-color: #FFE9A3;
+    border: 2px solid #EED9B6;   /* sand border for harmony */
+  padding: 15px;
+  margin: 10px 10px;
+  border-radius: 10px;
+
+}
+.productivity h2{
+    color: #4A4A4A;
+}
+.productivity li {
+  margin-bottom: 8px;
+}
