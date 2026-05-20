@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Farm Profile - SFA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        body { background: #12111a; }
+        .sidebar { background: #14131b; }
+        .card { background: #14131b; border: 1px solid #2a2a3a; }
+    </style>
+</head>
+<body class="bg-[#12111a] text-[#E8EAF0]">
+
+    <!-- Sidebar -->
+    <div class="w-64 sidebar border-r border-gray-800 fixed left-0 top-0 h-full">
+        <div class="p-6">
+            <div class="flex items-center gap-2 mb-8">
+                <span class="text-2xl">🌱</span>
+                <span class="font-bold text-xl">SFA</span>
+            </div>
+            <nav class="space-y-1">
+                <a href="/dashboard" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-gray-800">📊 Dashboard</a>
+                <a href="/farm-profile" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-[#b188ea]/10 text-[#b188ea]">🏠 Farm Profile</a>
+                <a href="/crops" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-gray-800">🌿 Crops</a>
+                <a href="/monitoring" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-gray-800">📈 Monitoring</a>
+                <a href="/reports" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-gray-800">📋 Reports</a>
+            </nav>
+        </div>
+        <div class="absolute bottom-6 left-0 right-0 px-6">
+            <a href="/logout" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 hover:bg-gray-800">🚪 Logout</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="ml-64 p-8">
+        <h1 class="text-3xl font-bold mb-2">Farm Profile</h1>
+        <p class="text-gray-400 mb-8">View and manage your farm details</p>
+
+        <div class="card rounded-xl p-6 max-w-2xl">
+            <div class="mb-6">
+                <label class="text-gray-400 text-sm">Farm Name</label>
+                <div class="text-xl font-semibold mt-1">{{ farm.name }}</div>
+            </div>
+            <div class="mb-6">
+                <label class="text-gray-400 text-sm">Location</label>
+                <div class="text-xl font-semibold mt-1">{{ farm.location }}</div>
+            </div>
+            <div class="mb-6">
+                <label class="text-gray-400 text-sm">Owner</label>
+                <div class="text-xl font-semibold mt-1">{{ current_user.full_name }}</div>
+            </div>
+            <div class="mb-6">
+                <label class="text-gray-400 text-sm">Email</label>
+                <div class="text-xl font-semibold mt-1">{{ current_user.email }}</div>
+            </div>
+            <div class="mb-6">
+                <label class="text-gray-400 text-sm">Member Since</label>
+                <div class="text-xl font-semibold mt-1">{{ current_user.created_at.strftime('%B %d, %Y') if current_user.created_at else 'Today' }}</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

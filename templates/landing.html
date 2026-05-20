@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SFA - Smart Farming Assistant | Hydroponic Management Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        body { background: #12111a; }
+        .gradient-text {
+            background: linear-gradient(135deg, #b188ea 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-[#12111a] text-[#E8EAF0]">
+
+    <!-- Navigation -->
+    <nav class="border-b border-gray-800 bg-[#12111a]/95 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl">🌱</span>
+                <span class="font-bold text-xl">SFA</span>
+                <span class="text-sm text-gray-400 hidden sm:block">Smart Farming Assistant</span>
+            </div>
+            <div class="flex gap-4">
+                <a href="/login" class="text-gray-300 hover:text-white px-4 py-2">Login</a>
+                <a href="/register" class="bg-[#b188ea] text-black px-5 py-2 rounded-lg font-semibold hover:opacity-90 transition">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto px-4 py-16 lg:py-24">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="inline-block px-3 py-1 bg-[#b188ea]/20 rounded-full text-[#b188ea] text-sm mb-6">
+                    🚀 Hydroponic Farm Management 2.0
+                </div>
+                <h1 class="text-4xl lg:text-6xl font-bold leading-tight mb-6">
+                    Smart Hydroponic Farm Management and 
+                    <span class="gradient-text">Marketplace Platform</span>
+                </h1>
+                <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                    Monitor your crops, track growth stages, analyze performance, and manage your hydroponic farm — all in one dashboard. Built for Egyptian farmers.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="/register" class="bg-[#b188ea] text-black px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition flex items-center gap-2">
+                        Start Free <span>→</span>
+                    </a>
+                    <a href="/login" class="border border-gray-700 px-8 py-3 rounded-lg font-semibold hover:border-[#b188ea] transition">
+                        Explore Demo
+                    </a>
+                </div>
+            </div>
+            <div class="rounded-2xl overflow-hidden shadow-2xl">
+                <img src="images/hydroponic.jpg" alt="Hydroponic farm" class="w-full h-80 lg:h-96 object-cover rounded-2xl">
+                 
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="max-w-7xl mx-auto px-4 py-20">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-4">Everything you need to grow smarter</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Built specifically for hydroponic farm owners in Egypt</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-[#14131b] p-6 rounded-xl border border-gray-800">
+                <div class="text-3xl mb-4">📊</div>
+                <h3 class="text-xl font-bold mb-2">Farm Monitoring</h3>
+                <p class="text-gray-400">Track temperature, pH, EC, and water levels. Get alerts when conditions are off.</p>
+            </div>
+            <div class="bg-[#14131b] p-6 rounded-xl border border-gray-800">
+                <div class="text-3xl mb-4">🌿</div>
+                <h3 class="text-xl font-bold mb-2">Crop Lifecycle</h3>
+                <p class="text-gray-400">Manage crops from Growing → Harvested → Ready to Sell → Sold Out.</p>
+            </div>
+            <div class="bg-[#14131b] p-6 rounded-xl border border-gray-800">
+                <div class="text-3xl mb-4">📈</div>
+                <h3 class="text-xl font-bold mb-2">Analytics & Reports</h3>
+                <p class="text-gray-400">View sales trends, crop performance, and export reports.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="max-w-7xl mx-auto px-4 py-20 border-t border-gray-800">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-4">How SFA Works</h2>
+            <p class="text-gray-400">Simple 4-step workflow from setup to insights</p>
+        </div>
+        <div class="grid md:grid-cols-4 gap-6">
+            <div class="text-center">
+                <div class="w-12 h-12 bg-[#b188ea]/20 rounded-full flex items-center justify-center text-[#b188ea] text-xl font-bold mx-auto mb-4">1</div>
+                <h3 class="font-bold mb-2">Create Farm Profile</h3>
+                <p class="text-gray-400 text-sm">Add your farm name and location</p>
+            </div>
+            <div class="text-center">
+                <div class="w-12 h-12 bg-[#b188ea]/20 rounded-full flex items-center justify-center text-[#b188ea] text-xl font-bold mx-auto mb-4">2</div>
+                <h3 class="font-bold mb-2">Add Your Crops</h3>
+                <p class="text-gray-400 text-sm">Tomatoes, lettuce, basil, and more</p>
+            </div>
+            <div class="text-center">
+                <div class="w-12 h-12 bg-[#b188ea]/20 rounded-full flex items-center justify-center text-[#b188ea] text-xl font-bold mx-auto mb-4">3</div>
+                <h3 class="font-bold mb-2">Log Daily Readings</h3>
+                <p class="text-gray-400 text-sm">Temperature, pH, EC, water level</p>
+            </div>
+            <div class="text-center">
+                <div class="w-12 h-12 bg-[#b188ea]/20 rounded-full flex items-center justify-center text-[#b188ea] text-xl font-bold mx-auto mb-4">4</div>
+                <h3 class="font-bold mb-2">Track & Analyze</h3>
+                <p class="text-gray-400 text-sm">View charts, KPIs, and reports</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Sidebar Demo (What you're building) -->
+    <section class="max-w-7xl mx-auto px-4 py-20 border-t border-gray-800">
+        <div class="bg-[#14131b] rounded-2xl p-8 border border-gray-800">
+            <h2 class="text-2xl font-bold mb-6 text-center">Your Farm Dashboard (Coming in Version 1)</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Sidebar visual -->
+                <div class="bg-[#0f0e15] rounded-xl p-4">
+                    <div class="text-[#b188ea] font-mono text-sm mb-3">┌─ SFA Dashboard ─┐</div>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex items-center gap-2 text-white">📊 Dashboard <span class="text-gray-500 text-xs ml-auto">← KPIs + charts</span></div>
+                        <div class="flex items-center gap-2 text-gray-400">🏠 Farm Profile</div>
+                        <div class="flex items-center gap-2 text-gray-400">🌿 Crops</div>
+                        <div class="flex items-center gap-2 text-gray-400">📈 Monitoring</div>
+                        <div class="flex items-center gap-2 text-gray-400">📋 Reports</div>
+                    </div>
+                    <div class="text-[#b188ea] font-mono text-sm mt-4">└─────────────────┘</div>
+                </div>
+                <!-- Connection explanation -->
+                <div class="space-y-3 text-gray-300 text-sm">
+                    <p><span class="text-[#b188ea] font-bold">→ Dashboard</span> shows all your KPIs (Total Crops, Revenue, Profit, Active Orders)</p>
+                    <p><span class="text-[#b188ea] font-bold">→ Farm Profile</span> stores your farm name and location (connects to all other features)</p>
+                    <p><span class="text-[#b188ea] font-bold">→ Crops</span> you add appear on Dashboard and Reports</p>
+                    <p><span class="text-[#b188ea] font-bold">→ Monitoring</span> readings are saved to your farm and shown on Dashboard cards</p>
+                    <p><span class="text-[#b188ea] font-bold">→ Reports</span> pulls sales data from harvested crops</p>
+                    <div class="bg-[#b188ea]/10 p-3 rounded-lg mt-4">
+                        <span class="text-[#b188ea]">💡 How they connect:</span> Farm → Crops → Harvested → Sales Record → Reports → Dashboard Charts
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="max-w-4xl mx-auto px-4 py-20 text-center">
+        <div class="bg-gradient-to-r from-[#b188ea]/10 to-transparent rounded-2xl p-12 border border-[#b188ea]/20">
+            <h2 class="text-3xl font-bold mb-4">Ready to grow smarter?</h2>
+            <p class="text-gray-400 mb-8">Join Egyptian hydroponic farmers using SFA to manage their farms</p>
+            <a href="/register" class="bg-[#b188ea] text-black px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition inline-block">
+                Create Your Free Account
+            </a>
+            <p class="text-gray-500 text-sm mt-4">No credit card required • Free forever</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 py-8 text-center text-gray-500 text-sm">
+        <p>© 2025 Smart Farming Assistant (SFA) — Hydroponic Management Platform for Egypt</p>
+    </footer>
+
+</body>
+</html>

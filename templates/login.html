@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - SFA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#12111a] text-[#E8EAF0]">
+    <div class="max-w-md mx-auto mt-20 p-8 bg-[#14131b] rounded-xl">
+        <h2 class="text-2xl font-bold mb-6">Login to SFA</h2>
+        
+        <form method="POST">
+            <input type="email" name="email" placeholder="Email" required 
+                   class="w-full p-3 mb-4 bg-[#1f1e2a] rounded-lg border border-gray-700">
+            
+            <input type="password" name="password" placeholder="Password" required 
+                   class="w-full p-3 mb-6 bg-[#1f1e2a] rounded-lg border border-gray-700">
+            
+            <button type="submit" class="w-full bg-[#b188ea] text-black py-3 rounded-lg font-semibold">
+                Login
+            </button>
+        </form>
+        
+        <p class="text-center text-gray-400 mt-4">
+            Don't have an account? <a href="/register" class="text-[#b188ea]">Register</a>
+        </p>
+    </div>
+</body>
+</html>

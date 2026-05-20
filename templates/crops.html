@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crops - SFA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        body { background: #12111a; }
+        .sidebar { background: #14131b; }
+        .card { background: #14131b; border: 1px solid #2a2a3a; }
+    </style>
+</head>
+<body class="bg-[#12111a] text-[#E8EAF0]">
+
+    <!-- Sidebar -->
+    <div class="w-64 sidebar border-r border-gray-800 fixed left-0 top-0 h-full">
+        <div class="p-6">
+            <div class="flex items-center gap-2 mb-8">
+                <span class="text-2xl">🌱</span>
+                <span class="font-bold text-xl">SFA</span>
+            </div>
+            <nav class="space-y-1">
+                <a href="/dashboard" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-gray-800">📊 Dashboard</a>
+                <a href="/farm-profile" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-gray-800">🏠 Farm Profile</a>
+                <a href="/crops" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-[#b188ea]/10 text-[#b188ea]">🌿 Crops</a>
+                <a href="/monitoring" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-gray-800">📈 Monitoring</a>
+                <a href="/reports" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-gray-800">📋 Reports</a>
+            </nav>
+        </div>
+        <div class="absolute bottom-6 left-0 right-0 px-6">
+            <a href="/logout" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 hover:bg-gray-800">🚪 Logout</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="ml-64 p-8">
+        <div class="flex justify-between items-center mb-8">
+            <div>
+                <h1 class="text-3xl font-bold mb-2">Crop Management</h1>
+                <p class="text-gray-400">Manage your crops and track their growth stages</p>
+            </div>
+            <button onclick="document.getElementById('cropModal').classList.remove('hidden')" class="bg-[#b188ea] text-black px-4 py-2 rounded-lg font-semibold">+ Add Crop</button>
+        </div>
+
+        <div class="card rounded-xl p-6">
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="border-b border-gray-800">
+                        <tr class="text-left text-gray-400">
+                            <th class="pb-3">Crop Name</th>
+                            <th class="pb-3">Stage</th>
+                            <th class="pb-3">Quantity</th>
+                            <th class="pb-3">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for crop in crops %}
+                        <tr class="border-b border-gray-800">
+                            <td class="py-3 font-medium">{{ crop.name }}</td>
+                            <td class="py-3">
+                                <span class="px-2 py-1 rounded-full text-xs 
+                                    {% if crop.stage == 'Growing' %}bg-blue-500/20 text-blue-400
+                                    {% elif crop.stage == 'Harvested' %}bg-yellow-500/20 text-yellow-400
+                                    {% elif crop.stage == 'Ready to Sell' %}bg-green-500/20 text-green-400
+                                    {% else %}bg-gray-500/20 text-gray-400{% endif %}">
+                                    {{ crop.stage }}
+                                </span>
+                            </td>
+                            <td class="py-3">{{ crop.quantity }} units</td>
+                            <td class="py-3">
+                                <div class="flex gap-2">
+                                    {% if crop.stage != 'Sold Out' %}
+                                    <a href="/update-crop-stage/{{ crop.id }}" class="text-[#b188ea] text-sm hover:underline">Advance Stage</a>
+                                    {% endif %}
+                                    <a href="/delete-crop/{{ crop.id }}" class="text-red-400 text-sm hover:underline" onclick="return confirm('Delete this crop?')">Delete</a>
+                                </div>
+                            </td>
+                         </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Crop Modal -->
+    <div id="cropModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+        <div class="bg-[#14131b] rounded-xl p-6 w-96 border border-gray-700">
+            <h3 class="text-xl font-bold mb-4">Add New Crop</h3>
+            <form action="/add-crop" method="POST">
+                <input type="text" name="crop_name" placeholder="Crop name (e.g., Tomato)" required class="w-full p-3 mb-3 bg-[#1f1e2a] rounded-lg border border-gray-700">
+                <input type="number" name="quantity" placeholder="Quantity (units)" required class="w-full p-3 mb-4 bg-[#1f1e2a] rounded-lg border border-gray-700">
+                <div class="flex gap-3">
+                    <button type="submit" class="flex-1 bg-[#b188ea] text-black py-2 rounded-lg font-semibold">Add Crop</button>
+                    <button type="button" onclick="document.getElementById('cropModal').classList.add('hidden')" class="flex-1 bg-gray-700 py-2 rounded-lg">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

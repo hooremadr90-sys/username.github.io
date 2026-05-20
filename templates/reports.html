@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reports - SFA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        body { background: #12111a; }
+        .card { background: #14131b; border: 1px solid #2a2a3a; }
+    </style>
+</head>
+<body class="bg-[#12111a] text-[#E8EAF0]">
+    <!-- Sidebar -->
+    <div class="w-64 bg-[#14131b] border-r border-gray-800 fixed left-0 top-0 h-full">
+        <div class="p-6">
+            <div class="flex items-center gap-2 mb-8">
+                <span class="text-2xl">🌱</span>
+                <span class="font-bold text-xl">SFA</span>
+            </div>
+            <nav class="space-y-1">
+                <a href="/dashboard" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-gray-800">📊 Dashboard</a>
+                <a href="/reports" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-[#b188ea]/10 text-[#b188ea]">📋 Reports</a>
+                <a href="/logout" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 hover:bg-gray-800 mt-10">🚪 Logout</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="ml-64 p-8">
+        <h1 class="text-3xl font-bold mb-2">Reports & Analytics</h1>
+        <p class="text-gray-400 mb-8">Farm performance overview</p>
+
+        <!-- KPI Summary -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="card rounded-xl p-6">
+                <div class="text-gray-400 text-sm">Total Revenue</div>
+                <div class="text-2xl font-bold text-green-400">EGP {{ total_revenue }}</div>
+            </div>
+            <div class="card rounded-xl p-6">
+                <div class="text-gray-400 text-sm">Crops Sold</div>
+                <div class="text-2xl font-bold text-[#b188ea]">{{ total_crops_sold }}</div>
+            </div>
+            <div class="card rounded-xl p-6">
+                <div class="text-gray-400 text-sm">Export Report</div>
+                <button onclick="alert('PDF download - Coming soon')" class="bg-[#b188ea] text-black px-4 py-2 rounded-lg text-sm font-semibold mt-2">Download PDF</button>
+            </div>
+        </div>
+
+        <!-- Crop Summary Table -->
+        <div class="card rounded-xl p-6">
+            <h2 class="text-xl font-bold mb-4">Crop Performance Summary</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="border-b border-gray-800">
+                        <tr class="text-left text-gray-400">
+                            <th class="pb-3">Crop</th>
+                            <th class="pb-3">Total Quantity Sold</th>
+                            <th class="pb-3">Total Revenue (EGP)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for crop_name, data in crop_summary.items() %}
+                        <tr class="border-b border-gray-800">
+                            <td class="py-3 font-medium">{{ crop_name }}</td>
+                            <td class="py-3">{{ data.quantity }} units</td>
+                            <td class="py-3">{{ data.revenue }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                 </table>
+            </div>
+        </div>
+
+        <!-- Recent Sales -->
+        <div class="card rounded-xl p-6 mt-6">
+            <h2 class="text-xl font-bold mb-4">Recent Sales</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="border-b border-gray-800">
+                        <tr class="text-left text-gray-400">
+                            <th class="pb-3">Date</th>
+                            <th class="pb-3">Crop</th>
+                            <th class="pb-3">Quantity</th>
+                            <th class="pb-3">Revenue (EGP)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for sale in sales %}
+                        <tr class="border-b border-gray-800">
+                            <td class="py-3">{{ sale.sale_date.strftime('%Y-%m-%d') }}</td>
+                            <td class="py-3">{{ sale.crop_name }}</td>
+                            <td class="py-3">{{ sale.quantity_sold }}</td>
+                            <td class="py-3">{{ sale.revenue }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                 </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
